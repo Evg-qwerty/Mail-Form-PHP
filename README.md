@@ -1,1 +1,1 @@
-# Mail-Form-PHP
+# simple Mail-Form-PHP
