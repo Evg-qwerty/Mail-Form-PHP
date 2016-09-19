@@ -32,10 +32,13 @@
             $error = true;
         }
         if (!$error) { // ошибок нет высылаем письмо
-            $subgMail = "=?utf-8?B?".base64_encode($subj)."?="; // коректное отоброжение темы сообщения всеми сборщиками почты
+            $subgMail = "=?utf-8?B?".base64_encode($subj)."?="; // корректное отоброжение темы сообщения всеми сборщиками почты
             $headers = "From: $from\r\nReply-to: $from\r\nContent-type: text/plain; charset=utf-8\r\n";
             mail($to, $subgMail, $message, $headers); // шлем письмо
-            header ("location: success.php?send=1"); // редирект после успешной отправки, send=1 передаем методом get чтобы на странице success проверить что пользователь попал туда именно после отправки сообщения.
+            header ("location: success.php?send=1"); 
+            /* редирект после успешной отправки, 
+            /* send=1 передаем методом get чтобы на странице success проверить 
+            /* что пользователь попал туда именно после отправки сообщения.
             /* success.php
             <?php
                 if ($_GET["send"] == 1)
